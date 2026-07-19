@@ -91,29 +91,24 @@ void datos(nodo<C>* act){
 int main(){
  Arbol<int> arbolito;
  ifstream archivo("casanostra.csv");
- vector<vector<string>> datos;
  string linea;
  std::string encabezado;
  std::getline(archivo, encabezado); 
  while(getline(archivo,linea)){
-    vector<string>fila;
+    string campos[10];
     stringstream ss(linea);
     string celda;
-    while(getline(ss,celda,',')){
-        fila.push_back(celda);
+    int indice=0;
+    while(getline(ss,celda,',') && indice < 10){
+        campos[indice++]=celda;
     }
-    datos.push_back(fila);
+    for(int i=0; i<indice; i++){
+        std::cout << campos[i] << "\t";
+    }
+    std::cout << std::endl;
+
+    arbolito.insertar(stoi(campos[0]),campos[1],campos[2],campos[3],stoi(campos[4]),(stoi(campos[5])!=0),(stoi(campos[6])!=0),(stoi(campos[7])!=0),(stoi(campos[8])!=0),(stoi(campos[9])!=0));
  }
- for (const auto& fila : datos) {
-        for (const auto& celda : fila) {
-            std::cout << celda << "\t";
-        }
-        std::cout << std::endl;
-    }
-for(int i=0;i<datos.size();i++){
-    arbolito.insertar(stoi(datos[i][0]),datos[i][1],datos[i][2],datos[i][3],(stoi(datos[i][4])),(stoi(datos[i][5])!=0),(stoi(datos[i][6])!=0),(stoi(datos[i][7])!=0),(stoi(datos[i][8])!=0),(stoi(datos[i][9])!=0));
-}
  
- //arbolito.insertar(stoi(datos[1][0]),datos[1][1],datos[1][2],datos[1][3],(stoi(datos[1][4])),(stoi(datos[1][5])!=0),(stoi(datos[1][6])!=0),(stoi(datos[1][7])!=0),(stoi(datos[1][8])!=0),(stoi(datos[1][9])!=0));
  arbolito.mostrardato();
 }
