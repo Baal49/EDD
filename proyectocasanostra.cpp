@@ -39,6 +39,7 @@ class Arbol{
         cout<<"isboss: "<<isboss<<"dead: "<<dead<<endl;
         if(this->jefe==nullptr&&isboss==1&&dead==0){
             nodo<C>* nodito=new nodo<C>(id,nombre,apellido,genero,age,idboss,dead,jail,wasboos,isboss);
+            jefe=nodito;
             return;
         }
         else{
@@ -70,8 +71,19 @@ class Arbol{
     }
 }
 void mostrardato(){
-    while(){
-
+    if(jefe==nullptr){
+        return;
+    }
+    nodo<C>* hijoder=jefe->hijoder;
+    nodo<C>* hijoizq=jefe->hijoizq;
+    cout<<"aquiii"<<jefe->id<<" "<<jefe->nombre<<" "<<jefe->apellido<<jefe->edad<<endl;
+    while(hijoder!=nullptr&&hijoizq!=nullptr){
+        if(hijoder!=nullptr){
+            cout<<hijoder->id<<" "<<hijoder->nombre<<" "<<hijoder->apellido<<hijoder->edad<<endl;
+        }
+        if(hijoizq!=nullptr){
+            cout<<hijoizq->id<<" "<<hijoizq->nombre<<" "<<hijoizq->apellido<<hijoizq->edad<<endl;
+        }
     }
 }
 };
@@ -98,4 +110,5 @@ int main(){
         std::cout << std::endl;
     }
  arbolito.insertar(stoi(datos[0][0]),datos[0][1],datos[0][2],datos[0][3],(stoi(datos[0][4])),(stoi(datos[0][5])!=0),(stoi(datos[0][6])!=0),(stoi(datos[0][7])!=0),(stoi(datos[0][8])!=0),(stoi(datos[0][9])!=0));
+ arbolito.mostrardato();
 }
