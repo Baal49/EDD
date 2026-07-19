@@ -71,20 +71,15 @@ class Arbol{
     }
 }
 void mostrardato(){
-    if(jefe==nullptr){
+   datos(jefe);
+}
+void datos(nodo<C>* act){
+    if(act==nullptr){
         return;
     }
-    nodo<C>* hijoder=jefe->hijoder;
-    nodo<C>* hijoizq=jefe->hijoizq;
-    cout<<"aquiii"<<jefe->id<<" "<<jefe->nombre<<" "<<jefe->apellido<<jefe->edad<<endl;
-    while(hijoder!=nullptr&&hijoizq!=nullptr){
-        if(hijoder!=nullptr){
-            cout<<hijoder->id<<" "<<hijoder->nombre<<" "<<hijoder->apellido<<hijoder->edad<<endl;
-        }
-        if(hijoizq!=nullptr){
-            cout<<hijoizq->id<<" "<<hijoizq->nombre<<" "<<hijoizq->apellido<<hijoizq->edad<<endl;
-        }
-    }
+    cout<<"Nombre: "<<act->nombre<<" apellido: "<<act->apellido<<endl;
+    datos(act->hijoder);
+    datos(act->hijoizq);
 }
 };
 int main(){
@@ -110,5 +105,6 @@ int main(){
         std::cout << std::endl;
     }
  arbolito.insertar(stoi(datos[0][0]),datos[0][1],datos[0][2],datos[0][3],(stoi(datos[0][4])),(stoi(datos[0][5])!=0),(stoi(datos[0][6])!=0),(stoi(datos[0][7])!=0),(stoi(datos[0][8])!=0),(stoi(datos[0][9])!=0));
+ arbolito.insertar(stoi(datos[1][0]),datos[1][1],datos[1][2],datos[1][3],(stoi(datos[1][4])),(stoi(datos[1][5])!=0),(stoi(datos[1][6])!=0),(stoi(datos[1][7])!=0),(stoi(datos[1][8])!=0),(stoi(datos[1][9])!=0));
  arbolito.mostrardato();
 }
