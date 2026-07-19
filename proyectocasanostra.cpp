@@ -60,7 +60,7 @@ class Arbol{
             return;
         }
         nodo<C>* nodito=new nodo<C>(id,nombre,apellido,genero,age,idboss,dead,jail,wasboos,isboss);
-        if(padre->hijoizq==nullptr){
+        if(padre->hijoizq==nullptr&&nodito->idjefe>0){
             padre->hijoizq=nodito;
             nivel++;
         }
