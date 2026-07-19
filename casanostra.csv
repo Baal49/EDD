@@ -1,3 +1,3 @@
-id,name, last_name, gender, age, id_boss, is_dead,in_jail, was_boss, is_boss
+id,nombre, apellido, genero, edad, id_jefe, muelto, preso, fue_jefe, es_jefe
 1,Vito,Corleone,M,70,1,0,0,0,1
 2,Reinaldo,Belmonte,M,19,0,0,0,0,0

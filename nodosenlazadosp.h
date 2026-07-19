@@ -3,29 +3,28 @@
 
 #include "nodos.h"
 
-// NodePool: lista enlazada simple hecha a mano.
+// nodosenlazadosp: lista enlazada simple hecha a mano.
 // Se usa SOLO como bodega temporal mientras se leen los nodos del CSV
 // y se va armando el arbol (no se pueden usar vectores, asi que
 // implementamos nuestra propia lista enlazada minima).
 class nodosenlazadosp {
 public:
-    struct Entry {
+    struct Entrada {
         Nodos* nodo;
-        Entry* siguiente;
-        Entry(Nodos* n, Entry* nx) : nodo(n), siguiente(nx) {}
+        Entrada* siguiente;
+        Entrada(Nodos* n, Entrada* nx) : nodo(n), siguiente(nx) {}
     };
 
-    Entry* head;
-    Entry* tail;
+    Entrada* head;
+    Entrada* tail;
 
     nodosenlazadosp() : head(nullptr), tail(nullptr) {}
 
     ~nodosenlazadosp() {
-        // Solo se liberan los "Entry" (nodos de la lista), NO los Nodos*,
-        // porque esos ya pertenecen al arbol y los libera FamilyTree.
-        Entry* act = head;
+        // Solo se liberan los "Entry", NO los Nodos,porque esos ya pertenecen al arbol y los libera el arbolito
+        Entrada* act = head;
         while (act != nullptr) {
-            Entry* siguiente = act->siguiente;
+            Entrada* siguiente = act->siguiente;
             delete siguiente;
             act = siguiente;
         }
@@ -33,8 +32,8 @@ public:
 
     // Se agrega al final para conservar el orden en que aparecen en el CSV
     // (asi el primer sucesor listado para un jefe queda como hijo izquierdo).
-    void add(Nodos* n) {
-        Entry* e = new Entry(n, nullptr);
+    void agregar(Nodos* n) {
+        Entrada* e = new Entrada(n, nullptr);
         if (tail == nullptr) {
             head = e;
             tail = e;
@@ -44,9 +43,9 @@ public:
         }
     }
 
-    Nodos* buscarporid(int id) const {
-        for (Entry* act = head; act != nullptr; act = act->siguiente) {
-            if (act->nodo->id == id) return act->nodo;
+    Nodos* buscarPorId(int id) const {
+        for (Entrada* actual = head; actual != nullptr; actual = actual->siguiente) {
+            if (actual->nodo->id == id) return actual->nodo;
         }
         return nullptr;
     }

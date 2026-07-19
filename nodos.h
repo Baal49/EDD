@@ -17,15 +17,15 @@ struct Nodos {
     bool fuejefe;      // si e true = fue jefe en algun momento
     bool esjefe;       // si e true = es el jefe actual
 
-    Nodos* hijoder;    // primer sucesor asignado
+    Nodos* hijoder;   // primer sucesor asignado
     Nodos* hijoizq;   // segundo sucesor asignado
-    Nodos* parent;  // puntero al jefe que lo nombro (para recorrer el arbol hacia arriba)
+    Nodos* padre;     // puntero al jefe que lo nombro (para recorrer el arbol hacia arriba)
 
     Nodos(int id_, const std::string& nombre_, const std::string& apellido_, char genero_,
           int edad_, int idjefe_, bool muelto_, bool preso_, bool fuejefe_, bool esjefe_)
         : id(id_), nombre(nombre_), apellido(apellido_), genero(genero_), edad(edad_),
           idjefe(idjefe_), muelto(muelto_), preso(preso_), fuejefe(fuejefe_), esjefe(esjefe_),
-          hijoder(nullptr), hijoizq(nullptr), parent(nullptr) {}
+          hijoder(nullptr), hijoizq(nullptr), padre(nullptr) {}
 };
 
 #endif
