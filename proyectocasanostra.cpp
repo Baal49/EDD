@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 using namespace std;
 template <typename N>
 class nodo{
