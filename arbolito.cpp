@@ -107,9 +107,10 @@ bool arbolito::cargarDesdeCSV(const std::string& ruta) {
         nodo->padre = padre;
         if (padre->hijoizq == nullptr) {
             padre->hijoizq = nodo;
-            std::cout<<"id: "<<root->hijoizq<<" nombre: "<<root->nombre<<" apellido: "<<root->apellido<<" generoTexto: "<<root->genero<<" edadTexto: "<<root->edad<<" idjefeTexto: "<<root->idjefe<<" mueltotexto: "<<root->muelto<<std::endl;
+            std::cout<<"hijo der id: "<<root->hijoizq->id<<" nombre: "<<root->hijoizq->nombre<<" apellido: "<<root->hijoizq->apellido<<" generoTexto: "<<root->hijoizq->genero<<" edadTexto: "<<root->hijoizq->edad<<" idjefeTexto: "<<root->hijoizq->idjefe<<" mueltotexto: "<<root->hijoizq->muelto<<std::endl;
         } else if (padre->hijoder == nullptr) {
             padre->hijoder = nodo;
+            std::cout<<"hijo izq id: "<<root->hijoder->id<<" nombre: "<<root->hijoder->nombre<<" apellido: "<<root->hijoder->apellido<<" generoTexto: "<<root->hijoder->genero<<" edadTexto: "<<root->hijoder->edad<<" idjefeTexto: "<<root->hijoder->idjefe<<" mueltotexto: "<<root->hijoder->muelto<<std::endl;
         }
         // si ya tiene 2 hijos, se ignora (el arbol es binario: max 2 sucesores)
     }
@@ -311,7 +312,7 @@ void arbolito::mostrarSucesionRec(Nodos* nodo, int profundidad) const {
     if (!nodo->muelto) {
         for (int i = 0; i < profundidad; ++i) std::cout << "   ";
         std::cout << "- " << nodo->nombre << " " << nodo->apellido
-                  << " (id:" << nodo->id << ", edad:" << nodo->edad <<nodo->hijoder<<nodo->hijoizq <<")";
+                  << " (id:" << nodo->id << ", edad:" << nodo->edad <<")";
         if (nodo->esjefe) std::cout << "  [JEFE ACTUAL]";
         if (nodo->preso) std::cout << "  [EN PRISION]";
         if (nodo->fuejefe && !nodo->esjefe) std::cout << "  [EX-JEFE]";
