@@ -42,10 +42,12 @@ static std::string siguienteCampo(const std::string& linea, size_t& posicion) {
 
 bool arbolito::cargarDesdeCSV(const std::string& ruta) {
     std::ifstream archivo(ruta.c_str());
+    std::cout<<"hola mundo";
     if (!archivo.is_open()) {
+        std::cout<<"hola mundo2";
         return false;
     }
-
+    std::cout<<"hola mund3";
     nodosenlazadosp pool; // lista enlazada
     std::string linea;
     bool primeraLinea = true;

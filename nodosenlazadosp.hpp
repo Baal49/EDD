@@ -21,12 +21,11 @@ public:
     nodosenlazadosp() : head(nullptr), tail(nullptr) {}
 
     ~nodosenlazadosp() {
-        // Solo se liberan los "Entry", NO los Nodos,porque esos ya pertenecen al arbol y los libera el arbolito
         Entrada* act = head;
         while (act != nullptr) {
             Entrada* siguiente = act->siguiente;
-            delete siguiente;
-            act = siguiente;
+            delete act;       // <--- Correcto: borramos el nodo actual
+            act = siguiente;  // <--- Avanzamos al siguiente
         }
     }
 
