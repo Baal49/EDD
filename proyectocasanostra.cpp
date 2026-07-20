@@ -73,14 +73,15 @@ static void editarMiembro(arbolito& tree) {
 int main() {
     arbolito tree;
 
-    if (!tree.cargarDesdeCSV("data.csv")) {
-        std::cout << "No se pudo abrir data.csv. Verifique que el archivo "
+    if (!tree.cargarDesdeCSV("casanostra.csv")) {
+        std::cout << "No se pudo abrir casanostra.csv. Verifique que el archivo "
                   << "exista dentro de la carpeta bin junto al ejecutable.\n";
         return 1;
     }
-
+    std::cout<<"como estas ";
     std::cout << "Datos de la familia cargados correctamente.\n";
     if (tree.obtenerJefe() != nullptr) {
+        std::cout<<"hola";
         std::cout << "Jefe actual: " << tree.obtenerJefe()->nombre << " "
                   << tree.obtenerJefe()->apellido << " (id:" << tree.obtenerJefe()->id << ")\n";
     } else {

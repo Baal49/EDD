@@ -18,6 +18,11 @@ void arbolito::liberarArbol(Nodos* nodo) {
     delete nodo;
 }
 
+void arbolito::imprimirNodo(const Nodos* n)const{
+    if(n!=nullptr){
+        std::cout<<"id: "<<n->id<<" nombre: "<<n->nombre<<" apellido: "<<n->apellido<<" edad: "<<n->edad<<" nombre: "<<n->nombre;
+    }
+}
 // -------------------------------------------------------------------
 // Carga desde CSV
 // Columnas: id,name,last_name,gender,age,id_boss,is_dead,in_jail,was_boss,is_boss
