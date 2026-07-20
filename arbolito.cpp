@@ -42,12 +42,9 @@ static std::string siguienteCampo(const std::string& linea, size_t& posicion) {
 
 bool arbolito::cargarDesdeCSV(const std::string& ruta) {
     std::ifstream archivo(ruta.c_str());
-    std::cout<<"hola mundo";
     if (!archivo.is_open()) {
-        std::cout<<"hola mundo2";
         return false;
     }
-    std::cout<<"hola mund3";
     nodosenlazadosp pool; // lista enlazada
     std::string linea;
     bool primeraLinea = true;
@@ -85,7 +82,6 @@ bool arbolito::cargarDesdeCSV(const std::string& ruta) {
         bool preso = (std::atoi(presoTexto.c_str()) == 1);
         bool fuejefe = (std::atoi(fuejefeTexto.c_str()) == 1);
         bool esjefe = (std::atoi(esjefeTexto.c_str()) == 1);
-
         Nodos* nodo = new Nodos(id, nombre, apellido, genero, edad, idjefe, muelto, preso, fuejefe, esjefe);
         pool.agregar(nodo);
 
@@ -100,6 +96,7 @@ bool arbolito::cargarDesdeCSV(const std::string& ruta) {
         Nodos* nodo = Entrada->nodo;
         if (nodo->idjefe == 0) {
             root = nodo; // la raiz del arbol (capo historico / primer jefe)
+            std::cout<<"id: "<<root->id<<" nombre: "<<root->nombre<<" apellido: "<<root->apellido<<" generoTexto: "<<root->genero<<" edadTexto: "<<root->edad<<" idjefeTexto: "<<root->idjefe<<" mueltotexto: "<<root->muelto<<std::endl;
             continue;
         }
         Nodos* padre = pool.buscarPorId(nodo->idjefe);
@@ -110,6 +107,7 @@ bool arbolito::cargarDesdeCSV(const std::string& ruta) {
         nodo->padre = padre;
         if (padre->hijoizq == nullptr) {
             padre->hijoizq = nodo;
+            std::cout<<"id: "<<root->hijoizq<<" nombre: "<<root->nombre<<" apellido: "<<root->apellido<<" generoTexto: "<<root->genero<<" edadTexto: "<<root->edad<<" idjefeTexto: "<<root->idjefe<<" mueltotexto: "<<root->muelto<<std::endl;
         } else if (padre->hijoder == nullptr) {
             padre->hijoder = nodo;
         }
@@ -313,7 +311,7 @@ void arbolito::mostrarSucesionRec(Nodos* nodo, int profundidad) const {
     if (!nodo->muelto) {
         for (int i = 0; i < profundidad; ++i) std::cout << "   ";
         std::cout << "- " << nodo->nombre << " " << nodo->apellido
-                  << " (id:" << nodo->id << ", edad:" << nodo->edad << ")";
+                  << " (id:" << nodo->id << ", edad:" << nodo->edad <<nodo->hijoder<<nodo->hijoizq <<")";
         if (nodo->esjefe) std::cout << "  [JEFE ACTUAL]";
         if (nodo->preso) std::cout << "  [EN PRISION]";
         if (nodo->fuejefe && !nodo->esjefe) std::cout << "  [EX-JEFE]";
