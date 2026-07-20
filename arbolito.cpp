@@ -1,5 +1,5 @@
-#include "arbolito.h"
-#include "nodosenlazadosp.h"
+#include "arbolito.hpp"
+#include "nodosenlazadosp.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>

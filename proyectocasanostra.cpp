@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "arbolito.h"
+#include "arbolito.hpp"
 
 static void mostrarMenu() {
     std::cout << "\n============ SISTEMA DE SUCESION FAMILIAR ============\n";

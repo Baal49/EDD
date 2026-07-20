@@ -1,7 +1,7 @@
-#ifndef NODE_POOL_H
-#define NODE_POOL_H
+#ifndef NODE_POOL_HPP
+#define NODE_POOL_HPP
 
-#include "nodos.h"
+#include "nodos.hpp"
 
 // nodosenlazadosp: lista enlazada simple hecha a mano.
 // Se usa SOLO como bodega temporal mientras se leen los nodos del CSV

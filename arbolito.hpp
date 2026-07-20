@@ -1,8 +1,8 @@
-#ifndef ARBOLITO_H
-#define ARBOLITO_H
+#ifndef ARBOLITO_HPP
+#define ARBOLITO_HPP
 
 #include <string>
-#include "nodos.h"
+#include "nodos.hpp"
 
 class arbolito {
 private:

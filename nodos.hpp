@@ -1,5 +1,5 @@
-#ifndef NODOS_H
-#define NODOS_H
+#ifndef NODOS_HPP
+#define NODOS_HPP
 
 #include <string>
 
